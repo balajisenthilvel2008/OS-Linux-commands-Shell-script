@@ -42,7 +42,7 @@ s.n. dasgupta
 ### Display the content of the files
 cat < file
 ## OUTPUT
-![catfile](img/1.png)
+![catfile](1.png)
 
 
 cat < file2
@@ -360,38 +360,29 @@ cat urllist.txt | tr -d ' ' | tr -s '.'
 #Backup commands
 tar -cvf backup.tar *
 ## OUTPUT
-![Alt text](img/48.png)
-<br>
 
-![Alt text](img/49.png)
 
 mkdir backupdir
-
+ 
 mv backup.tar backupdir
 
 cd backupdir
  
 tar -tvf backup.tar
 ## OUTPUT
-![Alt text](img/50.png)
-![Alt text](img/51.png)
+
 
 tar -xvf backup.tar
 ## OUTPUT
-![Alt text](img/52.png)
-![Alt text](img/53.png)
 
 gzip backup.tar
 
-ls *.gz
+ls .gz
 ## OUTPUT
-![Alt text](img/54.png) 
-
+ 
 gunzip backup.tar.gz
-
-ls
 ## OUTPUT
-![Alt text](img/55.png)
+
  
 # Shell Script
 ```
@@ -401,7 +392,7 @@ echo 'echo Hello World‘; exit 0 >> my-script.sh
 chmod 755 my-script.sh
 ./my-script.sh
 ## OUTPUT
-![Alt text](img/56.png)
+
  
 cat << stop > herecheck.txt
 ```
@@ -411,9 +402,9 @@ for this non stop movement
 stop
 ```
 
-cat < herecheck.txt
+cat herecheck.txt
 ## OUTPUT
-![Alt text](img/57.png)
+
 
 cat < scriptest.sh 
 ```bash
@@ -451,33 +442,29 @@ chmod 777 scriptest.sh
 ./scriptest.sh 1 2 3
 
 ## OUTPUT
-![Alt text](img/58.png)
+
  
 ls file1
 ## OUTPUT
-![Alt text](img/59.png)
 
 echo $?
-## OUTPUT
- ![Alt text](img/60.png)
-
+## OUTPUT 
 ./one
 bash: ./one: Permission denied
  
 echo $?
 ## OUTPUT 
-![Alt text](img/61.png) 
-
+ 
 abcd
  
 echo $?
  ## OUTPUT
-![Alt text](img/62.png)
+
 
  
 # mis-using string comparisons
 
-cat > strcomp.sh 
+cat < strcomp.sh 
 ```bash
 \#!/bin/bash
 val1=baseball
@@ -491,7 +478,7 @@ fi
 ^d
 ```
 
-cat < strcomp.sh 
+cat strcomp.sh 
 ```bash
 \#!/bin/bash
 val1=baseball
@@ -503,15 +490,15 @@ else
 echo "$val1 is less than $val2"
 fi
 ```
-## OUTPUT
-![Alt text](img/63.png)
+##OUTPUT
+
 
 
 chmod 755 strcomp.sh
  
 ./strcomp.sh 
 ## OUTPUT
-![Alt text](img/64.png)
+
 
 # check file ownership
 cat < psswdperm.sh 
@@ -526,19 +513,23 @@ fi
 ^d
 ```
 
-## OUTPUT
-![Alt text](img/65.png)
-
-chmod 755 psswdperm.sh
+cat psswdperm.sh 
+```bash
+/#!/bin/bash
+if [ -O /etc/passwd ]
+then
+echo “You are the owner of the /etc/passwd file”
+else
+echo “Sorry, you are not the owner of the /etc/passwd file”
+fi
+ ```
 ./psswdperm.sh
-
 ## OUTPUT
-![Alt text](img/66.png)
 
 # check if with file location
 cat>ifnested.sh 
 ```bash
-#!/bin/bash
+\#!/bin/bash
 if [ -e $HOME ]
 then
 echo “$HOME The object exists, is it a file?”
@@ -558,7 +549,6 @@ fi
 ^d
 ```
 cat ifnested.sh 
-
 ```
 \#!/bin/bash
 if [ -e $HOME ]
@@ -581,7 +571,7 @@ fi
 
 ./ifnested.sh 
 ## OUTPUT
-![Alt text](img/67.png)
+
 
 
 # using numeric test comparisons
@@ -624,8 +614,7 @@ fi
 $ chmod 755 iftest.sh
  
 $ ./iftest.sh 
-## OUTPUT
-![Alt text](img/68.png)
+##OUTPUT
 
 # check if a file
 cat > ifnested.sh 
@@ -674,14 +663,13 @@ fi
 $ chmod 755 ifnested.sh
  
 $ ./ifnested.sh 
-## OUTPUT
-![Alt text](img/69.png)
+##OUTPUT
 
 # looking for a possible value using elif
 cat elifcheck.sh 
 ```bash
 \#!/bin/bash
-if [ $USER = balaji ]
+if [ $USER = Ram ]
 then
 echo "Welcome $USER"
 echo "Please enjoy your visit"
@@ -704,7 +692,7 @@ $ chmod 755 elifcheck.sh
  
 $ ./elifcheck.sh 
 ## OUTPUT
-![Alt text](img/70.png)
+
 
 # testing compound comparisons
 cat> ifcompound.sh 
@@ -720,13 +708,12 @@ fi
 $ chmod 755 ifcompound.sh
 $ ./ifcompound.sh 
 ## OUTPUT
-![Alt text](img/71.png)
 
 # using the case command
 cat >casecheck.sh 
 ```bash
 case $USER in
-Ram | balaji)
+Ram | Robert)
 echo "Welcome, $USER"
 echo "Please enjoy your visit";;
 Rahim)
@@ -740,9 +727,7 @@ esac
 $ chmod 755 casecheck.sh 
  
 $ ./casecheck.sh 
-## OUTPUT:
-![Alt text](img/72.png)
-
+ 
 cat > whiletest
 ```bash
 #!/bin/bash
@@ -757,8 +742,7 @@ done
 $ chmod 755 whiletest.sh
  
 $ ./whiletest.sh
-## OUTPUT:
-![Alt text](img/73.png)
+ 
  
 cat untiltest.sh 
 ```bash
@@ -771,26 +755,21 @@ var1=$[ $var1 - 25 ]
 done
 ``` 
 $ chmod 755 untiltest.sh
-$ ./untiltest.sh
-## OUTPUT:
-![Alt text](img/74.png)
+ 
+ 
  
 cat forin1.sh 
 ```bash
-#!/bin/bash
-#basic for command
+\#!/bin/bash
+\#basic for command
 for test in Alabama Alaska Arizona Arkansas California Colorado
 do
 echo The next state is $test
 done
-```
+ ```
  
 $ chmod 755 forin1.sh
-$ ./ forin1.sh
-
-## OUTPUT:
-![Alt text](img/75.png)
-
+ 
  
 cat forin2.sh 
 ```bash
@@ -800,14 +779,23 @@ for test in I don't know if this'll work
 do
 echo “word:$test”
 done
- ``` 
+ ```
  
 $ chmod 755 forin2.sh
+ 
+cat forin2.sh 
+```bash
+\#!/bin/bash
+\# another example of how not to use the for command
+for test in I don't know if this'll work
+do
+echo “word:$test”
+done
+```
+$ chmod 755 forin2.sh
+ 
 $ ./forin2.sh 
-## OUTPUT:
-![Alt text](img/76.png)
-
-
+ 
 cat forin3.sh 
 ```bash
 \#!/bin/bash
@@ -816,16 +804,23 @@ for test in I don\'t know if "this'll" work
 do
 echo "word:$test"
 done
-
+```
 $ ./forin3.sh 
+ 
+cat forin1.sh 
+```bash
+#!/bin/bash
+# basic for command
+for test in Alabama Alaska Arizona Arkansas California Colorado
+do
+echo The next state is $test
+done
 ```
-## OUTPUT: 
-![Alt text](img/77.png)
+$ chmod 755 forin1.sh
 
-
-$ cat forinfile.sh 
-bash
-```
+## OUTPUT
+cat forinfile.sh 
+```bash
 #!/bin/bash
 # reading values from a file
 file="cities"
@@ -836,7 +831,6 @@ done
 ```
 $ chmod 777 forinfile.sh
 $ cat cities
-
 Hyderabad
 Alampur
 Basara
@@ -845,9 +839,8 @@ Adilabad
 Bhadrachalam
 Khammam
 
-
 ## OUTPUT
-![Alt text](img/78.png)
+
 
 cat forctype.sh 
 ```bash
@@ -861,7 +854,6 @@ done
 $ chmod 755 forctype.sh
 $ ./forctype.sh 
 ## OUTPUT
-![Alt text](img/79.png)
 
 cat forctype1.sh 
 ```bash
@@ -875,7 +867,6 @@ done
 $ chmod 755 forctype.sh
 $ ./forctype1.sh 
 ## OUTPUT
-![Alt text](img/80.png)
 
 cat fornested1.sh 
 ```bash
@@ -894,7 +885,7 @@ $ chmod 755 fornested1.sh
  
 $ ./fornested1.sh 
  ## OUTPUT
-![Alt text](img/81.png)
+
  
 cat forbreak.sh 
 ```bash
@@ -910,13 +901,13 @@ echo "Iteration number: $var1"
 done
 echo "The for loop is completed“
 ```
+## OUTPUT
+
 $ chmod 755 forbreak.sh
  
 $ ./forbreak.sh 
-## OUTPUT:
-![Alt text](img/82.png)
-
-cat forcontinue.sh 
+ 
+cat forbreak.sh 
 ```bash
 #!/bin/bash
 # breaking out of a for loop
@@ -936,8 +927,7 @@ $ chmod 755 forcontinue.sh
  
 $ ./forcontinue.sh 
 ## OUTPUT
-![Alt text](img/83.png) 
-
+ 
 cat exread.sh 
 ```bash
 #!/bin/bash
@@ -951,7 +941,7 @@ $ chmod 755 exread.sh
  
 $ ./exread.sh 
 ## OUTPUT
-![Alt text](img/84.png)
+
 
  cat exread1.sh
 ```bash
@@ -961,12 +951,12 @@ read -p "Enter your name: " name
 echo "Hello $name, welcome to my program. “
 ``` 
 $ chmod 755 exread1.sh 
-$ ./exread1.sh 
 
 ## OUTPUT
-![Alt text](img/85.png)
 
 
+
+$ ./exread1.sh 
  
 cat funcex.sh
 ```bash
@@ -984,13 +974,11 @@ echo "Usage: badtest1 a b"
 fi
 ```
 ## OUTPUT
-./funcex.sh 
+ ./funcex.sh 
 
-![Alt text](img/86.png)
  
-./funcex.sh 1 2
+ ./funcex.sh 1 2
 
-![Alt text](img/87.png)
  
 cat argshift.sh
 ```bash
@@ -1001,12 +989,10 @@ cat argshift.sh
 done
 ```
 $ chmod 777 argshift.sh
-$ ./argshift.sh 1 2 3
 
 ## OUTPUT
- ![Alt text](img/88.png)
-
-
+$ ./argshift.sh 1 2 3
+ 
  cat argshift1.sh
 ```bash
  #/bin/bash 
@@ -1021,11 +1007,9 @@ for (( i=0;i<$ELEMENTS;i++)); do
 done
 ```
 $ chmod 777 argshift.sh
-$ ./argshift.sh 1 2 3
-
 ## OUTPUT
-![Alt text](img/89.png) 
-
+$ ./argshift.sh 1 2 3
+ 
 cat argshift.sh
 ```bash
 #!/bin/bash 
@@ -1039,7 +1023,6 @@ set +x
 ## OUTPUT
  ./argshift.sh 1 2 3
  
-![Alt text](img/90.png)
  
 cat > nc.awk
 ```bash
@@ -1070,7 +1053,6 @@ ubcdfghj
 ```
 awk -f nc.awk data.dat
 ## OUTPUT 
-![Alt text](img/91.png)
  
 cat > palindrome.sh
 ```bash
@@ -1098,7 +1080,7 @@ else
 fi
 ```
 ## OUTPUT 
-![Alt text](img/92.png)
+
 
 # RESULT:
 The Commands are executed successfully.
